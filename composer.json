@@ -1,0 +1,19 @@
+{
+    "name": "camilocontreras/wp-webscrapper",
+    "description": "Web scrapper pluin",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "Inc\\": "./inc"
+        }
+    },
+    "authors": [
+        {
+            "name": "ccontreras",
+            "email": "camilo.contreras@intelindev.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
