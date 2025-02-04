@@ -11,7 +11,7 @@
     class EnqueueController extends BaseController
     {
     public function register(){
-        add_action( 'init', array($this, 'equeue_files') );
+        add_action( 'wp_enqueue_scripts', array($this, 'equeue_files') );
     }
 
     public function equeue_files(){
@@ -24,5 +24,11 @@
         wp_enqueue_media();
         //CUSTOM JS
         wp_enqueue_script('webscrapper-scripts-js', $this->plugin_url . 'assets/js/styles.js', ['jquery'], $version, true);
+
+        // Localize the script
+        wp_localize_script('webscrapper-scripts-js', 'wpScrapper', array(
+            'ajaxurl' => admin_url('admin-ajax.php'),
+            'nonce'   => wp_create_nonce('mi-nonce')
+        ));
     }
 }
